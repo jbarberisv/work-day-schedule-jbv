@@ -19,12 +19,27 @@ var elCalendarDiv = $("#calendar");
 var startHour = 9;
 
 for (var i = 0; i < 9; i++) {
-  var date = new Date(); // today
+  var date = new Date(); // today; 
+
+  var now = new Date(); //
+   
   date.setHours(9, 0, 0); // set today at 9:00am
 
   time = moment(date).add(i, 'hour').format('LT'); 
-  console.log(time);
-  var elHourDiv = $("<div>").addClass("row time-block past").attr('id', time);
+
+  if (moment(now).format('HH') > moment(date).add(i, 'hour').format('HH')) {
+    var pastClass = "row time-block past"
+  }
+
+  if (moment(now).format('HH') === moment(date).add(i, 'hour').format('HH')) {
+    var pastClass = "row time-block present"
+  }
+
+  if (moment(now).format('HH') < moment(date).add(i, 'hour').format('HH')) {
+    var pastClass = "row time-block future"
+  }
+
+  var elHourDiv = $("<div>").addClass(pastClass).attr('id', time);
   var elHourContainerDiv = $("<div>").addClass("col-2 col-md-1 hour text-center py-3").append(time);
   var elTextAreaDiv = $("<textarea>").addClass("col-8 col-md-10 description").attr('row' , 3);
   var elButton =$("<button>").addClass("btn saveBtn col-2 col-md-1").attr('arial-label' , 'save');
