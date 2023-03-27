@@ -10,13 +10,20 @@ var elCalendarDiv = $("#calendar");
     // </button>
   // </div>
 
-
+function createInputListener(i) {
+  return function() {
+    value[i] = $(this).val();
+    console.log(value);
+  }
+}
 
 // elHourDiv.append(elHourContainerDiv);
 // elHourDiv.append(elTextAreaDiv);
 // elButton.append(elI);
 // elHourDiv.append(elButton);
 var startHour = 9;
+var value = []; //array
+var elImput = []; //array
 
 for (var i = 0; i < 9; i++) {
   var date = new Date(); // today; 
@@ -41,19 +48,30 @@ for (var i = 0; i < 9; i++) {
 
   var elHourDiv = $("<div>").addClass(pastClass).attr('id', time);
   var elHourContainerDiv = $("<div>").addClass("col-2 col-md-1 hour text-center py-3").append(time);
-  var elTextAreaDiv = $("<textarea>").addClass("col-8 col-md-10 description").attr('row' , 3);
-  var elButton =$("<button>").addClass("btn saveBtn col-2 col-md-1").attr('arial-label' , 'save');
+  var elTextAreaDiv = $("<textarea>").addClass("col-8 col-md-10 description").attr('row' , 3).attr('id' , 'textImput-' + i);
+  var elButton = $("<button>").addClass("btn saveBtn col-2 col-md-1").attr('id' , i);
   var elI = $("<i>").addClass("fas fa-save").attr('arial-hidden' , true);
   elHourDiv.append(elHourContainerDiv);
   elHourDiv.append(elTextAreaDiv);
   elButton.append(elI);
   elHourDiv.append(elButton);
   elCalendarDiv.append(elHourDiv);
+
+  elImput[i] = $('#textImput-' + i); // query selector grab element text area
+  
+  $(elImput[i]).on('input', createInputListener(i));
+
+
+
+  $(elButton).click(function(e){
+    console.log(e.currentTarget.id, value[e.currentTarget.id]);
+  });
 }
 
 
 
-console.log(elCalendarDiv);
+
+
 
 $(function () {
   // var row = $("<div>").addClass("row");
