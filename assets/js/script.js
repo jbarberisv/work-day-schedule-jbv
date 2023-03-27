@@ -12,7 +12,7 @@ var elCalendarDiv = $("#calendar");
 
 function createInputListener(i) {
   return function() {
-    value[i] = $(this).val();
+    value[i] = {hour: i , value: $(this).val()};
     console.log(value);
   }
 }
@@ -64,6 +64,7 @@ for (var i = 0; i < 9; i++) {
 
 
   $(elButton).click(function(e){
+    localStorage.setItem("calendar", JSON.stringify(value))
     console.log(e.currentTarget.id, value[e.currentTarget.id]);
   });
 }
