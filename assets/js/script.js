@@ -1,7 +1,49 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+var elCalendarDiv = $("#calendar");
+  // <div id="hour-9" class="row time-block past">
+    // <div class="col-2 col-md-1 hour text-center py-3">9AM</div>
+    // <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+    // <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+    //   <i class="fas fa-save" aria-hidden="true"></i>
+    // </button>
+  // </div>
+
+
+
+// elHourDiv.append(elHourContainerDiv);
+// elHourDiv.append(elTextAreaDiv);
+// elButton.append(elI);
+// elHourDiv.append(elButton);
+var startHour = 9;
+
+for (var i = 0; i < 9; i++) {
+  var date = new Date(); // today
+  date.setHours(9, 0, 0); // set today at 9:00am
+
+  time = moment(date).add(i, 'hour').format('LT'); 
+  console.log(time);
+  var elHourDiv = $("<div>").addClass("row time-block past").attr('id', time);
+  var elHourContainerDiv = $("<div>").addClass("col-2 col-md-1 hour text-center py-3").append(time);
+  var elTextAreaDiv = $("<textarea>").addClass("col-8 col-md-10 description").attr('row' , 3);
+  var elButton =$("<button>").addClass("btn saveBtn col-2 col-md-1").attr('arial-label' , 'save');
+  var elI = $("<i>").addClass("fas fa-save").attr('arial-hidden' , true);
+  elHourDiv.append(elHourContainerDiv);
+  elHourDiv.append(elTextAreaDiv);
+  elButton.append(elI);
+  elHourDiv.append(elButton);
+  elCalendarDiv.append(elHourDiv);
+}
+
+
+
+console.log(elCalendarDiv);
+
 $(function () {
+  // var row = $("<div>").addClass("row");
+  
+  // console.log(elHourDiv);
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
