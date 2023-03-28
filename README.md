@@ -7,7 +7,7 @@
 i was was given part of the Html and all the CSS code to program a simple work day schedule using Java Script.
 ## Screenshot
 
-![alt screenshot] 
+![alt screenshot](https://github.com/jbarberisv/work-day-schedule-jbv/blob/main/assets/images/workdayS.png?raw=true) 
 
 
 ## Features and Technology
@@ -18,7 +18,7 @@ i was was given part of the Html and all the CSS code to program a simple work d
   
 
 ## Deployment
-[Click Here](https://jbarberisv.github.io/work-day-shedule/) to view the final result.
+[Click Here](https://jbarberisv.github.io/work-day-schedule-jbv/) to view the final result.
 
 
 ## Credits
