@@ -4,9 +4,7 @@
 # Code Quiz
 
 ## Description
-
-I created a code pop quiz using Html, CSS and JavaScript.
-The quiz has a 60 second time limit and for every wrong question you get the time will take 10 seconds from the time resting. At the end of the quiz, the page will ask you to write down your inicials so it can save up your scores.
+i was was given part of the Html and all the CSS code to program a simple work day schedule using Java Script.
 ## Screenshot
 
 ![alt screenshot] 
@@ -14,13 +12,13 @@ The quiz has a 60 second time limit and for every wrong question you get the tim
 
 ## Features and Technology
 
-- HTML-5, CSS
+- Java Script
 - Local Storage
-- Commented code
+  
   
 
 ## Deployment
-[Click Here](https://jbarberisv.github.io/code-quiz-jbv/) to view the final result.
+[Click Here](https://jbarberisv.github.io/work-day-shedule/) to view the final result.
 
 
 ## Credits
